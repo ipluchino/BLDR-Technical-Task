@@ -3,12 +3,12 @@ const router = express.Router();
 const FileIO = require('../FileIO');
 
 // Helper function to format a date as mm-dd-yyyy.
-function FormatDate(date) {
+const FormatDate = (date) => {
     const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based, so +1
     const day = String(date.getDate()).padStart(2, '0');
     const year = date.getFullYear();
     return `${month}-${day}-${year}`;
-}
+};
 
 //Helper function to check if a date range conflicts with pre-defined rental periods.
 const IsOverlap = (item, startDate, endDate) => {
@@ -28,7 +28,7 @@ const IsOverlap = (item, startDate, endDate) => {
     }
 
     return false;
-}
+};
 
 //Route to rent an item from the list of items.
 router.post('/:id', async (req, res) => {
