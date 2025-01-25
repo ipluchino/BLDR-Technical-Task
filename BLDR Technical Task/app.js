@@ -9,12 +9,6 @@ const app = express();
 //Set up server console logging for testing purposes.
 app.use(morgan('dev'));
 
-//Set up body parser.
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));;
-app.use(express.static(path.join(__dirname, 'public')));
-
-
 //Set up the routing.
 app.use('/list', require('./routes/list'));
 app.use('/rent', require('./routes/rent'));
@@ -23,9 +17,8 @@ app.use('/search', require('./routes/search'));
 
 //Handle unknown routes.
 app.use((req, res) => {
-    res.status(404).send('Unknown route');
+    res.status(404).send('Route could not be found. Please try again.');
 });
-
 
 //Create the JSON file to hold the item list if it doesn't already exist.
 const itemsFilePath = './items.json';
