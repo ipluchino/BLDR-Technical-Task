@@ -84,7 +84,7 @@ router.post('/', async (req, res) => {
         name: name,
         description: description,
         pricePerDay: pricePerDay,
-        rentalDates: sortedRentalDates
+        rentalInformation: sortedRentalDates
     };
 
     //Add the item to the items JSON list.

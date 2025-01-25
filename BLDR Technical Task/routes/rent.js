@@ -12,7 +12,7 @@ const FormatDate = (date) => {
 
 //Helper function to check if a date range conflicts with pre-defined rental periods.
 const IsOverlap = (item, startDate, endDate) => {
-    for (rentalPeriod of item.rentalDates.rentalPeriods) {
+    for (rentalPeriod of item.rentalInformation.rentalPeriods) {
         const rentalPeriodStartDate = new Date(rentalPeriod.startDate);
         const rentalPeriodEndDate = new Date(rentalPeriod.endDate);
 
@@ -68,13 +68,13 @@ router.post('/:id', async (req, res) => {
     const formattedStartDate = FormatDate(startDate);
     const formattedEndDate = FormatDate(endDate);
 
-    selectedItem.rentalDates.rentalPeriods.push({
+    selectedItem.rentalInformation.rentalPeriods.push({
         startDate: formattedStartDate,
         endDate: formattedEndDate
     });
 
     //Sort the rental dates in date order.
-    selectedItem.rentalDates.rentalPeriods.sort((a, b) => {
+    selectedItem.rentalInformation.rentalPeriods.sort((a, b) => {
         const dateA = new Date(a.startDate);
         const dateB = new Date(b.startDate);
 

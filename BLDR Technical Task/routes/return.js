@@ -48,7 +48,7 @@ router.post('/:id', async (req, res) => {
     }
 
     //Remove the correct rental period from the item in the items JSON list.
-    const index = FindRentalPeriod(selectedItem.rentalDates.rentalPeriods, returnDate);
+    const index = FindRentalPeriod(selectedItem.rentalInformation.rentalPeriods, returnDate);
 
     //Make sure the rental period could be found.
     if (index === -1) {
@@ -57,7 +57,7 @@ router.post('/:id', async (req, res) => {
     }
 
     //If it can be found, remove that rental period from the item.
-    selectedItem.rentalDates.rentalPeriods.splice(index, 1);
+    selectedItem.rentalInformation.rentalPeriods.splice(index, 1);
     FileIO.writeItems(items);
 
     res.status(200).send('The item has been returned successfully.');
