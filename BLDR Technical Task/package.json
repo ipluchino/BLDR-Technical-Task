@@ -1,0 +1,21 @@
+{
+  "name": "bldr-technical-task",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "description": "BLDR Technical Task",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "morgan": "^1.10.0"
+  },
+  "eslintConfig": {}
+}
