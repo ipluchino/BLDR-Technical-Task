@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const FileIO = require('../FileIO');
 
-// Helper function to format date as mm-dd-yyyy.
+// Helper function to format a date as mm-dd-yyyy.
 function FormatDate(date) {
     const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based, so +1
     const day = String(date.getDate()).padStart(2, '0');
