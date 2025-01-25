@@ -10,7 +10,6 @@ const ValidateRentalDates = (rentalDates) => {
         parsedRentalDates = JSON.parse(rentalDates);
     }
     catch (error) {
-        console.log(error);
         return false;
     }
 
