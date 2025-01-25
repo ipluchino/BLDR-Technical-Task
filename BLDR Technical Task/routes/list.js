@@ -57,29 +57,34 @@ router.post('/', async (req, res) => {
         return;
     }
 
-    if (!ValidateRentalDates(rentalDates)) {
+    if (rentalDates && !ValidateRentalDates(rentalDates)) {
         res.status(400).send('Invalid request, rentalDates must be a JSON object with the following format: {\"rentalPeriods\":[{\"startDate\":\"05-05-2025",\"endDate\":\"05-10-2025\"}]}');
         return;
     }
 
+    //Sort the rentalDates into date order if they were provided.
+    let sortedRentalDates = {};
+    if (rentalDates) {
+        finalRentalDates = JSON.parse(rentalDates);
+        parsedRentalDates.rentalPeriods.sort((a, b) => {
+            const dateA = new Date(a.startDate);
+            const dateB = new Date(b.startDate);
+
+            return dateA - dateB;
+        });
+    }
+    else {
+        sortedRentalDates = JSON.parse('{\"rentalPeriods\": []}');
+    }
+
     //Create the new item.
     items = FileIO.readItems();
-
-    //Sort the rentalDates into date order.
-    const parsedRentalDates = JSON.parse(rentalDates);
-    parsedRentalDates.rentalPeriods.sort((a, b) => {
-        const dateA = new Date(a.startDate);
-        const dateB = new Date(b.startDate);
-
-        return dateA - dateB;
-    });
-
     item = {
         id: items.length + 1,
         name: name,
         description: description,
         pricePerDay: pricePerDay,
-        rentalDates: parsedRentalDates || []
+        rentalDates: sortedRentalDates
     };
 
     //Add the item to the items JSON list.

@@ -6,7 +6,7 @@ const FileIO = require('../FileIO');
 router.get('/', async (req, res) => {
     const { name, minPrice, maxPrice } = req.query;
 
-    const items = FileIO.readItems();
+    let items = FileIO.readItems();
 
     //Filter by name if a name parameter is provided.
     if (name) {
@@ -37,10 +37,11 @@ router.get('/', async (req, res) => {
         items = items.filter(item => item.pricePerDay <= parseFloat(maxPrice));
     }
 
+    //Sort by price order.
+    items = items.sort((a, b) => parseFloat(a.pricePerDay) - parseFloat(b.pricePerDay));
+
     //Return the filtered JSON.
     res.status(200).json(items);
-
-
 });
 
 module.exports = router
