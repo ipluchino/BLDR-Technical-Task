@@ -65,13 +65,14 @@ router.post('/', async (req, res) => {
     //Sort the rentalDates into date order if they were provided.
     let sortedRentalDates = {};
     if (rentalDates) {
-        finalRentalDates = JSON.parse(rentalDates);
+        parsedRentalDates = JSON.parse(rentalDates);
         parsedRentalDates.rentalPeriods.sort((a, b) => {
             const dateA = new Date(a.startDate);
             const dateB = new Date(b.startDate);
 
             return dateA - dateB;
         });
+        sortedRentalDates = parsedRentalDates;
     }
     else {
         sortedRentalDates = JSON.parse('{\"rentalPeriods\": []}');
