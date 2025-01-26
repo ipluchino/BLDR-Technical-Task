@@ -62,5 +62,4 @@ If running on a local machine, the server will be live at http://localhost:3000/
   - id is the id of the item to be returned.
 - Query Paramters:
   - returnDate (required): The date the item is being returned.
-- Example:
-- POST localhost:3000/return/5?returnDate=05-04-2025
+- Example: POST localhost:3000/return/5?returnDate=05-04-2025
