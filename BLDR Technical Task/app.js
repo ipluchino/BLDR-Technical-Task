@@ -11,6 +11,7 @@ app.use(morgan('dev'));
 
 //Set up the routing.
 app.use('/list', require('./routes/list'));
+app.use('/unlist', require('./routes/unlist'));
 app.use('/rent', require('./routes/rent'));
 app.use('/return', require('./routes/return'));
 app.use('/search', require('./routes/search'));

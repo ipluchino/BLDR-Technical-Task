@@ -42,6 +42,9 @@
     <Content Include="routes\search.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="routes\unlist.js">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="public\" />
