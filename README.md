@@ -51,7 +51,10 @@ If running on a local machine, the server will be live at http://localhost:3000/
   - name (required): The name of the item.
   - description (optional): A description of the item.
   - pricePerDay (required): The price to rent the item per day.
-  - rentalPeriods (optional): A JSON object with an array containing pre-defined rental periods. This parameter is used if the item has already been rented out for the future before being listed. The format can be seen in the example below.
+      - Must be a postive number.    
+  - rentalPeriods (optional): A JSON object with an array containing pre-defined rental periods. This parameter is used if the item has already been rented out for the future before being listed.
+      - The format must follow the format in the example below.
+      - Individual rental period startDates and endDates must be valid dates in the format MM-DD-YYYY, and startDates cannot be after endDates.
 - Example: POST localhost:3000/list?name=Drone&description=A drone with a 4K camera.&pricePerDay=209.99&rentalPeriods={"rentalPeriods":[{"startDate":"02-02-2025","endDate":"02-28-2025"}, {"startDate":"04-11-2025","endDate":"04-14-2025"}]}
 
 ### 2. Unlist an item (POST)
@@ -67,7 +70,9 @@ If running on a local machine, the server will be live at http://localhost:3000/
 - Query Parameters:
   - name (optional): Filters the items by a name.
   - minPrice (optional): Filters the items by a minimum price.
+      - Must be a postive number.  
   - maxPrice (optional): Filters the items by a maximum price.
+      - Must be a postive number.  
 - Example: GET localhost:3000/search?minPrice=40&maxPrice=80
 
 ### 4. Rent an item (POST)
@@ -76,7 +81,9 @@ If running on a local machine, the server will be live at http://localhost:3000/
   - id is the id of the item to be rented.
 - Query Parameters:
   -  startDate (required): The starting date of the rental period.
+      - Must be a valid date in the format MM-DD-YYYY. Cannot be after endDate.
   -  endDate (required): The ending date of the rental period.
+      - Must be a valid date in the format MM-DD-YYYY. Cannot be before startDate. 
 - Example: POST localhost:3000/rent/5?startDate=05-02-2025&endDate=05-05-2025
 
 ### 5. Return an item (POST)
@@ -85,4 +92,5 @@ If running on a local machine, the server will be live at http://localhost:3000/
   - id is the id of the item to be returned.
 - Query Paramters:
   - returnDate (required): The date the item is being returned.
+      - Must be a valid date in the format MM-DD-YYYY.
 - Example: POST localhost:3000/return/5?returnDate=05-04-2025
