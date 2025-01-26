@@ -1,5 +1,5 @@
 # Rental Platform Backend
-This project represents a backend API for a platform where users can rent out items,  written using Node.js and Express. There are defined routes to list a new item, unlist existing items, search for items (by name, minimum price, and maximum price), rent items for date ranges, and return items. For testing purposes, users can rent items for dates in the past and return items in the future. In a real system, it would not be possible to rent an item in the past or return an item in the future (other than cancelling a future rental period). However, date overlap conflicts are checked for and not allowed. If I were to expand this project, I would create an interactive front-end that allows users to directly utilize all of the functionality through a website.
+This project represents a backend API for a platform where users can rent out items, written using Node.js and Express. There are defined routes to list a new item, unlist existing items, search for items (by name, minimum price, and maximum price), rent items for specified date ranges, and return items. For testing purposes, users can rent items for dates in the past and return items in the future. In a real system, it would not be possible to rent an item in the past or return an item in the future (other than cancelling a future rental period). However, date overlap conflicts are checked for and not allowed. If I were to expand this project, I would create an interactive front-end that allows users to directly utilize all of the functionality through a website.
 
 # Data storage
 The item list is stored as a JSON array in a file titled "items.json". This is so that the item data persists after server restarts. The items file is already pre-loaded with some test data. 
@@ -100,4 +100,4 @@ If running on a local machine, the server will be live at http://localhost:3000/
 
 # Demonstration
 Below is a brief youtube video demonstrating all of the API endpoints (via Postman). 
-Video:
+Demonstration Video: https://www.youtube.com/watch?v=2wpBbTf38cA
