@@ -99,5 +99,5 @@ If running on a local machine, the server will be live at http://localhost:3000/
 - Example: POST localhost:3000/return/5?returnDate=05-04-2025
 
 # Demonstration
-Below is a brief youtube video demonstrating all of the API endpoints (via Postman). 
+Below is a brief youtube video demonstrating all of the API endpoints (via Postman).<br/>
 Demonstration Video: https://www.youtube.com/watch?v=2wpBbTf38cA
