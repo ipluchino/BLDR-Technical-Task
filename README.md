@@ -44,7 +44,7 @@ npm install
 ```bash
 npm start
 ```
-If running on a local machine, the server will be live at http://localhost:3000/ unless a different port is explicitly specified.
+If running on a local computer, the server will be live at http://localhost:3000/ unless a different port is explicitly specified.
 
 # API Endpoints and Testing Instructions
 ### 1. List an item (POST)
