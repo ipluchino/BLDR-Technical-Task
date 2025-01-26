@@ -17,8 +17,9 @@ router.get('/', async (req, res) => {
     if (minPrice) {
         const parsedMinPrice = parseFloat(minPrice);
 
-        if (isNaN(parsedMinPrice)) {
-            res.status(400).send('Invalid request, minPrice must be a valid number.');
+        //Make sure the minPrice paramater is valid.
+        if (isNaN(parsedMinPrice) || parsedMinPrice < 0) {
+            res.status(400).send('Invalid request, minPrice must be a valid positive number.');
             return;
         }
 
@@ -29,8 +30,9 @@ router.get('/', async (req, res) => {
     if (maxPrice) {
         const parsedMaxPrice = parseFloat(maxPrice);
 
-        if (isNaN(parsedMaxPrice)) {
-            res.status(400).send('Invalid request, maxPrice must be a valid number.');
+        //Make sure the maxPrice parameter is valid.
+        if (isNaN(parsedMaxPrice) || parsedMaxPrice < 0) {
+            res.status(400).send('Invalid request, maxPrice must be a valid positive number.');
             return;
         }
 
