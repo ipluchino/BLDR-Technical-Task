@@ -46,7 +46,7 @@ npm start
 ```
 If running on a local computer, the server will be live at http://localhost:3000/ unless a different port is explicitly specified.
 
-# API Endpoints and Testing Instructions
+# API Endpoints and Testing Examples
 ### 1. List an item (POST)
 - Description: Used to add an item to the overall list of items that can be rented.
 - Endpoint: /list
