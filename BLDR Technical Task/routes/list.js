@@ -83,7 +83,7 @@ router.post('/', async (req, res) => {
     item = {
         id: items.length + 1,
         name: name,
-        description: description,
+        description: description || "",
         pricePerDay: pricePerDay,
         rentalInformation: sortedRentalDates
     };
