@@ -51,8 +51,8 @@ If running on a local machine, the server will be live at http://localhost:3000/
   - name (required): The name of the item.
   - description (optional): A description of the item.
   - pricePerDay (required): The price to rent the item per day.
-  - rentalDates (optional): A JSON object with pre-defined rental dates. This parameter is used if the item has already been rented out for the future before being listed.
-- Example: POST localhost:3000/list?name=Drone&description=A drone with a 4K camera.&pricePerDay=209.99&rentalDates={"rentalPeriods":[{"startDate":"02-02-2025","endDate":"02-28-2025"}, {"startDate":"04-11-2025","endDate":"04-14-2025"}]}
+  - rentalPeriods (optional): A JSON object with an array containing pre-defined rental periods. This parameter is used if the item has already been rented out for the future before being listed. The format can be seen in the example below.
+- Example: POST localhost:3000/list?name=Drone&description=A drone with a 4K camera.&pricePerDay=209.99&rentalPeriods={"rentalPeriods":[{"startDate":"02-02-2025","endDate":"02-28-2025"}, {"startDate":"04-11-2025","endDate":"04-14-2025"}]}
 
 ### 2. Unlist an item (POST)
 - Description: Used to unlist an item from the overall list of items that can be rented.
