@@ -58,6 +58,12 @@ router.post('/:id', async (req, res) => {
         return;
     }
 
+    //Make sure that the start date is before the end date.
+    if (endDate <= startDate) {
+        res.status(400).send('Invalid request, the provided startDate has to be before the endDate.');
+        return;
+    }
+
     //Make sure the dates do not overlap with already defined rental periods.
     if (IsOverlap(selectedItem, startDate, endDate)) {
         res.status(400).send('Invalid request, the requested rental period overlaps with already defined rental periods.');
