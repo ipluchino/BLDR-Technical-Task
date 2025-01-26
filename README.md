@@ -1,6 +1,29 @@
 # Rental Platform Backend
-This project represents a backend API for a platform where users can rent out items. There are defined routes to list a new item, search for items (by name, minimum price, and maximum price), rent items for date ranges, and return items.
+This project represents a backend API written using Node and Express for a platform where users can rent out items. There are defined routes to list a new item, unlist existing items, search for items (by name, minimum price, and maximum price), rent items for date ranges, and return items. The item list is stored as a JSON array in a file titled "items.json". For testing purposes, users can rent items for dates in the past and return items in the future. In a real system, it would not be possible to rent an item in the past or return an item in the future (other than cancelling a future rental period). 
 
+Example of items.json:
+```yaml
+[
+    {
+    "id": 1,
+    "name": "Apple IPhone",
+    "description": "An IPhone X with 128GB of memory.",
+    "pricePerDay": "39.99",
+    "rentalInformation": {
+      "rentalPeriods": [
+        {
+          "startDate": "02-06-2025",
+          "endDate": "02-09-2025"
+        },
+        {
+          "startDate": "04-11-2025",
+          "endDate": "04-14-2025"
+        }
+      ]
+    }
+  }
+]
+```
 # Download Instructions
 1. **Clone this repository.**
 ```bash
