@@ -62,7 +62,7 @@ If running on a local machine, the server will be live at http://localhost:3000/
 - Example: POST localhost:3000/unlist/8
 
 ### 3. Search for an item (GET)
-- Description: Used to search for specific items on the item list. If no search query parameters are included, all items will be returned.
+- Description: Used to search for specific items on the item list. If no search query parameters are included, all items will be returned. All search results are sorted by price order.
 - Endpoint: /search
 - Query Parameters:
   - name (optional): Filters the items by a name.
